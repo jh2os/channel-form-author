@@ -95,7 +95,7 @@ class Channel_form_author_ext {
 	function channel_form_submit_entry_end($obj)
 	{
 		$author = ee()->input->post('cfaid', TRUE);
-		if ($author && $obj->entry['entry_id']) 
+		if (isset($obj->entry['entry_id']) && $author && $obj->entry['entry_id']) 
 		{
 			$author = reset(array_filter(preg_split("/\D+/", $author)));
 			ee()->db->update(
